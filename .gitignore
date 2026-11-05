@@ -1,0 +1,11 @@
+﻿node_modules/
+.env
+.env.*
+!.env.example
+.openai/
+*.log
+/*-v*.png
+/desktop-redesign.png
+/mobile-redesign.png
+/logo-desktop.png
+/logo-mobile.png

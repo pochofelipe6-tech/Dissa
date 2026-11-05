@@ -1,0 +1,47 @@
+﻿/* Iconos: entrada en cascada con giro, rebote y destello lima. */
+[data-icon-motion] {
+  transform-origin: 50% 50%;
+}
+.icon-burst-in {
+  animation: dissa-icon-burst 780ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--icon-delay, 0ms);
+}
+@keyframes dissa-icon-burst {
+  0% {
+    opacity: 0;
+    translate: 0 25px;
+    rotate: -110deg;
+    scale: 0.15;
+    filter: blur(7px) drop-shadow(0 0 0 #d3ff0000);
+  }
+  38% {
+    opacity: 1;
+    translate: 0 -8px;
+    rotate: 13deg;
+    scale: 1.24;
+    filter: blur(0) drop-shadow(0 0 13px #d3ff0099);
+  }
+  62% {
+    translate: 0 3px;
+    rotate: -7deg;
+    scale: 0.94;
+    filter: drop-shadow(0 0 5px #d3ff0055);
+  }
+  82% {
+    translate: 0 -2px;
+    rotate: 3deg;
+    scale: 1.05;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+    rotate: 0deg;
+    scale: 1;
+    filter: blur(0) drop-shadow(0 0 0 #d3ff0000);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .icon-burst-in {
+    animation: none !important;
+  }
+}

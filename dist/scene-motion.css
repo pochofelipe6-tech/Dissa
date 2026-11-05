@@ -1,0 +1,198 @@
+﻿/* Humo en tiempo real y aparición de superficies. */
+.hero-smoke {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+}
+.hero-visual {
+  z-index: 2;
+}
+[data-surface-motion] {
+  --surface-lift: 0px;
+  transition:
+    translate 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    scale 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.4s,
+    border-color 0.3s;
+}
+.surface-waiting {
+  opacity: 0;
+}
+.surface-enter {
+  animation: dissa-surface-enter 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--surface-delay, 0ms);
+}
+@keyframes dissa-surface-enter {
+  0% {
+    opacity: 0;
+    translate: 0 48px;
+    scale: 0.92;
+    filter: blur(5px);
+  }
+  58% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  80% {
+    translate: 0 -3px;
+    scale: 1.01;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+    filter: blur(0);
+  }
+}
+.product {
+  position: relative;
+  isolation: isolate;
+}
+.product:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--pointer-x, 50%) var(--pointer-y, 30%),
+    #bd4cff24,
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.35s;
+  z-index: 0;
+}
+.product-photo,
+.product-meta {
+  position: relative;
+  z-index: 1;
+}
+.product img {
+  transition:
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.5s;
+}
+.editorial-visual {
+  overflow: hidden;
+}
+.editorial-visual img,
+.related-products button img,
+.hero-thumb img {
+  transition:
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.5s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .product:hover {
+    translate: 0 -8px;
+    scale: 1.015;
+    box-shadow:
+      0 14px 35px #0008,
+      0 0 24px #af27ed32;
+    border-color: #caff0088;
+  }
+  .product:hover:before {
+    opacity: 1;
+  }
+  .product:hover img {
+    transform: scale(1.08) rotate(-2deg);
+    filter: drop-shadow(0 14px 14px #0008);
+  }
+  .product.has-cutout:hover img {
+    transform: scale(1.12) rotate(-4deg);
+    filter: drop-shadow(0 15px 14px #b14aff35);
+  }
+  .category-tile:hover {
+    translate: 0 -7px;
+    scale: 1.045;
+    box-shadow:
+      0 0 27px #caff0075,
+      inset 0 1px 4px #fff8;
+  }
+  .benefits > div:hover {
+    translate: 0 -6px;
+    scale: 1.025;
+    box-shadow:
+      0 0 23px #be45f84d,
+      inset 0 1px 4px #fffc;
+    border-color: #d9b2ff !important;
+  }
+  .steps article:hover {
+    translate: 0 -6px;
+    scale: 1.015;
+    box-shadow: 0 12px 35px #8f20ce29;
+    border-color: #ca78ff88;
+  }
+  .editorial-visual:hover img {
+    transform: scale(1.055);
+    filter: contrast(1.04) saturate(1.08);
+  }
+  .related-products > div > button:hover {
+    translate: 0 -5px;
+    border-color: #caff0088;
+    box-shadow: 0 0 18px #a336d92e;
+  }
+  .related-products button:hover img {
+    transform: scale(1.08) rotate(-4deg);
+  }
+  .hero-thumb:hover img {
+    transform: scale(1.14) rotate(-5deg);
+    filter: drop-shadow(0 0 5px #caff0050);
+  }
+  .button:hover,
+  .more:hover {
+    translate: 0 -4px;
+    scale: 1.025;
+    box-shadow: 0 0 25px #caff0045;
+  }
+}
+.button:active,
+.category-tile:active,
+.more:active {
+  scale: 0.97;
+  translate: 0 1px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-smoke {
+    opacity: 0.45;
+  }
+  .surface-waiting {
+    opacity: 1;
+  }
+  .surface-enter {
+    animation: none !important;
+    opacity: 1;
+  }
+  [data-surface-motion],
+  .product img,
+  .editorial-visual img,
+  .related-products button img,
+  .hero-thumb img {
+    transition: none !important;
+  }
+  [data-surface-motion]:hover {
+    translate: none;
+    scale: 1;
+  }
+}
+
+/* Mayor presencia y desplazamiento visible alrededor de la plataforma. */
+.hero-smoke {
+  opacity: 1;
+  mask-image: linear-gradient(90deg, #0004 0%, #0005 30%, #000 53%);
+}
+@media (max-width: 760px) {
+  .hero-smoke {
+    mask-image: linear-gradient(0deg, #000 0%, #000 40%, transparent 64%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-smoke {
+    opacity: 0.45;
+  }
+}

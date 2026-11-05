@@ -1,0 +1,14 @@
+{
+  "name": "dissa-shoes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Catálogo de DISSA Shoes en HTML, CSS y JavaScript",
+  "scripts": {
+    "start": "node server.cjs",
+    "check": "node --check dist/app.js && node --check dist/icon-motion.js && node --check dist/scene-motion.js && node --check server.cjs",
+    "test:ui": "node qa-collection.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
+  }
+}
