@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#11120f" />
+    <script src="theme.js"></script>
     <link rel="icon" type="image/png" href="assets/dissa-logo.png" />
     <title>DISSA Shoes</title>
     <meta
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="icon-motion.css" />
     <link rel="stylesheet" href="neon-stage.css" />
     <link rel="stylesheet" href="scene-motion.css?v=6" />
+    <link rel="stylesheet" href="theme.css" />
   </head>
   <body id="inicio">
     <div class="announcement">
@@ -99,6 +101,37 @@
         >
       </nav>
       <div class="header-actions">
+        <button
+          type="button"
+          class="icon-button"
+          id="themeToggle"
+          aria-label="Activar modo claro"
+          title="Activar modo claro"
+          aria-pressed="false"
+        >
+          <svg
+            class="theme-sun"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 1v3m0 16v3M1 12h3m16 0h3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1m0-15.6-2.1 2.1M6.3 17.7l-2.1 2.1"
+            /></svg
+          ><svg
+            class="theme-moon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            aria-hidden="true"
+          >
+            <path d="M21 13a9 9 0 0 1-10-10 9 9 0 1 0 10 10Z" />
+          </svg>
+        </button>
         <button
           class="icon-button"
           id="searchShortcut"

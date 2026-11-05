@@ -37,3 +37,5 @@ Los iconos usan dist/icon-motion.css y dist/icon-motion.js: entrada escalonada a
 La interfaz Neon World se ajusta en dist/neon-stage.css. El escenario decorativo está en dist/assets/neon-stage-v4.png; el zapato, el selector y la ficha flotante siguen siendo elementos interactivos independientes.
 
 El humo morado se dibuja y anima en canvas mediante dist/scene-motion.js. Se pausa fuera de pantalla y cuando la pestaña está oculta. Las entradas y los efectos hover de tarjetas, fotos y botones se ajustan en dist/scene-motion.css y respetan el movimiento reducido.
+
+El botón de sol/luna en la cabecera alterna el modo claro y oscuro. La preferencia se guarda en localStorage como dissa-theme. El aspecto claro se define en dist/theme.css y la lógica en dist/theme.js.
